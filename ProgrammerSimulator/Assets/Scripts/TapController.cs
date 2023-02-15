@@ -1,27 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class TapController : MonoBehaviour
 {
-
-    private int taps = 0;
-    private int randomKey;
-    private GameObject keyToSpawn;
-    [SerializeField] private int targetTaps = 10;
-    [SerializeField] private Text tapsText;
-    [SerializeField] private UnityEngine.UI.Image progressBar;
-    [SerializeField] private Sprite[] keys;
-
-
-   private void Start()
-    {
-        
-    }
-
     
+    private TapsProgressBar tapsProgressBar;
+    private Keys keys;
+    private AudioController audioController;
+
+    private void Awake()
+    {
+        tapsProgressBar = FindObjectOfType<TapsProgressBar>();
+        keys = FindObjectOfType<Keys>();
+        audioController = FindObjectOfType<AudioController>();
+    }
     private void Update()
     {
         CheckMouseClick();
@@ -31,28 +22,12 @@ public class TapController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            FillingProgressBar();
-            SpawnKey();
+            tapsProgressBar.FillingProgressBar();
+            keys.SpawnKey();
+            audioController.PlayRandomKeySound();
         }
     }
 
-    private void FillingProgressBar()
-    {
-        taps++;
-        tapsText.text = "Taps: " + taps.ToString();
-        progressBar.fillAmount = taps / (float)targetTaps;
-    }
-
-    private void SpawnKey()
-    {
-        Vector2 clickPosition;
-
-        randomKey = Random.Range(0, keys.Length);
-        keyToSpawn = new GameObject("key", typeof(SpriteRenderer));
-        keyToSpawn.GetComponent<SpriteRenderer>().sprite = keys[randomKey];
-        clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        keyToSpawn.transform.position = clickPosition;
-    }
 }
 
     
