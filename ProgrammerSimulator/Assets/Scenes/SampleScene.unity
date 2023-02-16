@@ -207,8 +207,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 205952630}
-        m_TargetAssemblyTypeName: MuteButton, Assembly-CSharp
-        m_MethodName: ButtonClicked
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: SwitchSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 205952630}
+        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
+        m_MethodName: StopAllCoroutines
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -257,11 +269,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 205952626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46883d1718b89e34da642669942ee287, type: 3}
+  m_Script: {fileID: 11500000, guid: fb3085bcf5b250c43953de9790785bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundOffImage: {fileID: 21300000, guid: 2612a86c337494c46b5e125bf26071d5, type: 3}
-  button: {fileID: 205952628}
+  audioSource: {fileID: 0}
+  sprite1: {fileID: 21300000, guid: 8f4d181a7c48e5648a0cd87e10434db4, type: 3}
+  sprite2: {fileID: 21300000, guid: 2612a86c337494c46b5e125bf26071d5, type: 3}
+  soundButton: {fileID: 205952628}
 --- !u!222 &205952631
 CanvasRenderer:
   m_ObjectHideFlags: 0
