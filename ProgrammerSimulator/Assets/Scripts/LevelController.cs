@@ -5,25 +5,22 @@ using UnityEngine.UI;
 public class LevelController : MonoBehaviour
 
 {
-    private int level = 1;
+    private int level = 0;
     private ProgrammsProgressBar programmsProgressBar;
     [SerializeField] private Text levelText;
+    [SerializeField] private string[] levels;
     private void Awake()
     {
         programmsProgressBar = FindObjectOfType<ProgrammsProgressBar>();
+        levelText.text = "Level: " + levels[level];
     }
-    void Start()
-    {
-        
-    }
-
     
     private void Update()
     {
         if (programmsProgressBar.IsProgrammsReady())
         {
             level++;
-            levelText.text = "Level: " + level.ToString();
+            levelText.text = "Level: " + levels[level];
         }
     }
 }

@@ -4,13 +4,13 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     private bool soundEnabled;
-    public AudioSource audioSource;
-    public Sprite sprite1, sprite2;
-    public Button soundButton;
+    private AudioSource audioSource;
+    [SerializeField] private Sprite sprite1, sprite2;
+    [SerializeField] private Button soundButton;
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+       // audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()

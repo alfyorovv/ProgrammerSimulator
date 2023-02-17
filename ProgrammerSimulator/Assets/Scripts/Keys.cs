@@ -34,6 +34,7 @@ public class Keys : MonoBehaviour
         keyToSpawn.GetComponent<SpriteRenderer>().sprite = keys[randomKey];
         clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         keyToSpawn.transform.position = clickPosition;
+        keyToSpawn.GetComponent<SpriteRenderer>().sortingOrder = 5;
     }
 
     private void ChooseRandomDirection()
