@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - AudioManager
     - Keys
     - LevelController
+    - PanelAnimation
     - ProgrammerAnimation
     - ProgrammsProgressBar
     - TapController
@@ -31,6 +32,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -42,6 +44,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
@@ -98,9 +102,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4072}
     - Class: 114
+      Script: {instanceID: 4524}
+    - Class: 114
+      Script: {instanceID: 4730}
+    - Class: 114
       Script: {instanceID: 5150}
     - Class: 114
-      Script: {instanceID: 22944}
+      Script: {instanceID: 5812}
+    - Class: 114
+      Script: {instanceID: 22254}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -428,7 +438,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: c92354596a0b9b598a82463efec9bd80
+      Hash: 4e2cb8a200f4e129c896014183318053
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioManager
@@ -470,7 +480,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 33eadb03a4ec80eff56b7f1a557b3638
+      Hash: 6a5793076d95df4f6bb2f46794abe60e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ProgrammsProgressBar
@@ -620,7 +630,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: c5eb1cfc9546a0e7205b5b11a3c62ecf
+      Hash: ad85cd4dda911452621f2311a71eb86a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LevelController
@@ -678,6 +688,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ProgrammerAnimation
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PanelAnimation
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
