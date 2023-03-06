@@ -15,4 +15,5 @@ public class ProgrammerAnimation : MonoBehaviour
         animator.Play(0, -1, (animator.GetCurrentAnimatorStateInfo(0).normalizedTime + Time.deltaTime) % 1);
 
     }
+    
 }
