@@ -5,18 +5,22 @@ public class TapsProgressBar : MonoBehaviour
 {
     [SerializeField] private Image tapsProgressBar;
     [SerializeField] private int targetTaps = 10;
-    private int taps = 0;
+
+    private void Start()
+    {
+        tapsProgressBar.fillAmount = PlayerPrefs.GetInt("taps") / (float)targetTaps;
+    }
 
     public void FillingProgressBar()
     {
-        taps++;
-        tapsProgressBar.fillAmount = taps / (float)targetTaps;
+        PlayerPrefs.SetInt("taps", PlayerPrefs.GetInt("taps") + 1);
+        tapsProgressBar.fillAmount = PlayerPrefs.GetInt("taps") / (float)targetTaps;
     }
     public bool IsProgrammReady()
     {
-        if (taps == targetTaps)
+        if (PlayerPrefs.GetInt("taps") == targetTaps)
         {
-            taps = 0;
+            PlayerPrefs.SetInt("taps", 0);
             tapsProgressBar.fillAmount = 0;
             return true;
         }

@@ -6,20 +6,20 @@ using UnityEngine.UI;
 
 public class ProgrammsProgressBar : MonoBehaviour
 {
-    [SerializeField] private UnityEngine.UI.Image programmsProgressBar;
-    [SerializeField] private int targetProgramms = 10;
+    [SerializeField] private Image programmsProgressBar;
+    [SerializeField] private int targetProgramms;
     [SerializeField] private Text programmsText;
     private TapsProgressBar tapsProgressBar;
-    private int programms = 0;
-
+    
     private void Awake()
     {
         tapsProgressBar = FindObjectOfType<TapsProgressBar>();
-        programmsText.text = targetProgramms.ToString();
-
+        programmsText.text = PlayerPrefs.GetInt("targetProgramms").ToString();
+        targetProgramms = PlayerPrefs.GetInt("targetProgramms");
+        programmsProgressBar.fillAmount = PlayerPrefs.GetInt("programms") / (float)PlayerPrefs.GetInt("targetProgramms");
     }
-  
-  private void Update()
+
+    private void Update()
     {
         if (tapsProgressBar.IsProgrammReady())
         {
@@ -28,18 +28,18 @@ public class ProgrammsProgressBar : MonoBehaviour
     }
     public void FillingProgressBar()
     {
-        programms++;
-        programmsProgressBar.fillAmount = programms / (float)targetProgramms;
+        PlayerPrefs.SetInt("programms", PlayerPrefs.GetInt("programms")+1);
+        programmsProgressBar.fillAmount = PlayerPrefs.GetInt("programms") / (float)PlayerPrefs.GetInt("targetProgramms");
     }
 
     public bool IsProgrammsReady()
     {
-        if (programms == targetProgramms)
+        if (PlayerPrefs.GetInt("programms") == PlayerPrefs.GetInt("targetProgramms"))
         {
-            programms = 0;
+            PlayerPrefs.SetInt("programms", 0);
             programmsProgressBar.fillAmount = 0;
-            targetProgramms += 15;
-            programmsText.text = targetProgramms.ToString();
+            PlayerPrefs.SetInt("targetProgramms", PlayerPrefs.GetInt("targetProgramms")+15);
+            programmsText.text = PlayerPrefs.GetInt("targetProgramms").ToString();
             return true;
         }
         else
